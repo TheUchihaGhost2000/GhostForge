@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GhostForge | Tech Services</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(145deg, #1a1a1a, #101010);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+    }
+    h1 {
+      font-size: 48px;
+      color: #00ffff;
+    }
+    p.subtitle {
+      font-size: 20px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+    nav {
+      background-color: #111;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 36px;
+      color: #00ffff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .services, .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+    .card h3 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+    .contact-form {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+    }
+    .contact-form button {
+      background-color: #00ffff;
+      color: #000;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .contact-form button:hover {
+      background-color: #00b3b3;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #666;
+    }
+
+    /* Gallery Styles */
+    #gallery {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      object-fit: cover;
+      height: 150px;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GhostForge Full-Stack Creator</h1>
+    <p class="subtitle">Websites, Logos, Translations & Tech Solutions</p>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="services">
+    <h2>My Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites built with HTML, CSS, JavaScript, and more.</p>
+      </div>
+      <div class="card">
+        <h3>Logo Design</h3>
+        <p>Unique and creative logos tailored to your brand identity and audience.</p>
+      </div>
+      <div class="card">
+        <h3>Translation</h3>
+        <p>Professional translation (Arabic, English, French) for any content or document.</p>
+      </div>
+      <div class="card">
+        <h3>Tech Assistance</h3>
+        <p>Custom tech solutions, automation, bots, and digital problem-solving services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio">
+      <div class="card">
+        <h3>Personal Website</h3>
+        <p>A dark-themed portfolio with services and contact form.</p>
+      </div>
+      <div class="card">
+        <h3>Business Logo Pack</h3>
+        <p>Logo designs for startups, brands, and YouTube channels.</p>
+      </div>
+      <div class="card">
+        <h3>Multi-Language Docs</h3>
+        <p>Translated documents and web content with professional quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="sample_0 (3).jpg" alt="Project 1" />
+      <img src="sample_0 (4).jpg" alt="Project 2" />
+      <img src="sample_0 (5).jpg" alt="Project 3" />
+      <img src="sample_0 (6).jpg" alt="Project 4" />
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" action="https://formspree.io/f/yourcode" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Jack | Contact: <a href="mailto:theghost2009uchiha@gmail.com">theghost2009uchiha@gmail.com</a>
+  </footer>
+</body>
+</html>
