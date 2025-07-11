@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="GhostForge - Web development, logo design, and tech services by Jack.">
-<meta name="keywords" content="web development, logo design, translation, ghostforge, freelance, tech support">
-  <meta name="google-site-verification" content="gEIOWyy9zhvwGiRBbzupidM4ly_Azxa3FfD0rNy92bk" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GhostForge - Web development, logo design, and tech services by Jack." />
+  <meta name="keywords" content="web development, logo design, translation, ghostforge, freelance, tech support" />
+  <meta name="google-site-verification" content="gEIOWyy9zhvwGiRBbzupidM4ly_Azxa3FfD0rNy92bk" />
   <title>GhostForge | Tech Services</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -28,6 +22,7 @@
       background-color: #0e0e0e;
       color: #f0f0f0;
       line-height: 1.6;
+      transition: direction 0.3s ease;
     }
     header {
       padding: 40px 20px;
@@ -69,7 +64,7 @@
       margin-bottom: 20px;
       text-align: center;
     }
-    .services, .portfolio {
+    .services, .portfolio, .store {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
@@ -84,15 +79,40 @@
       color: #00ffff;
       margin-bottom: 10px;
     }
-    .contact-form {
-      background-color: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-      max-width: 600px;
-      margin: auto;
+    .card button {
+      background-color: #00ffff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
     }
-    .contact-form input, .contact-form textarea {
+    .card button:hover {
+      background-color: #00b3b3;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      object-fit: cover;
+      height: 150px;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -118,88 +138,91 @@
       padding: 30px 20px;
       color: #666;
     }
-
-    /* Gallery Styles */
-    #gallery {
-      padding-top: 60px;
-      padding-bottom: 60px;
+    /* Language Switcher */
+    .lang-switch {
+      margin-top: 20px;
+      text-align: center;
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-      transition: transform 0.3s ease;
+    .lang-switch button {
+      margin: 0 8px;
+      background: #00ffff;
+      color: #000;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
       cursor: pointer;
-      object-fit: cover;
-      height: 150px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    .gallery-grid img:hover {
-      transform: scale(1.05);
+    .lang-switch button:hover {
+      background-color: #00b3b3;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>GhostForge Full-Stack Creator</h1>
-    <p class="subtitle">Websites, Logos, Translations & Tech Solutions</p>
+    <h1 id="title">GhostForge Full-Stack Creator</h1>
+    <p class="subtitle" id="subtitle">Websites, Logos, Translations & Tech Solutions</p>
+    <div class="lang-switch">
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('fr')">Français</button>
+      <button onclick="setLang('ar')">العربية</button>
+      <button onclick="setLang('jp')">日本語</button>
+      <button onclick="setLang('ru')">Русский</button>
+    </div>
   </header>
 
   <nav>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+    <a href="#services" id="navServices">Services</a>
+    <a href="#portfolio" id="navPortfolio">Portfolio</a>
+    <a href="#gallery" id="navGallery">Gallery</a>
+    <a href="#contact" id="navContact">Contact</a>
+    <a href="#about" id="navAbout">About</a>
   </nav>
 
   <section id="services">
-    <h2>My Services</h2>
+    <h2 id="servicesTitle">My Services</h2>
     <div class="services">
       <div class="card">
-        <h3>Web Development</h3>
-        <p>Modern, responsive websites built with HTML, CSS, JavaScript, and more.</p>
+        <h3 id="service1Title">Web Development</h3>
+        <p id="service1Desc">Modern, responsive websites built with HTML, CSS, JavaScript, and more.</p>
       </div>
       <div class="card">
-        <h3>Logo Design</h3>
-        <p>Unique and creative logos tailored to your brand identity and audience.</p>
+        <h3 id="service2Title">Logo Design</h3>
+        <p id="service2Desc">Unique and creative logos tailored to your brand identity and audience.</p>
       </div>
       <div class="card">
-        <h3>Translation</h3>
-        <p>Professional translation (Arabic, English, French) for any content or document.</p>
+        <h3 id="service3Title">Translation</h3>
+        <p id="service3Desc">Professional translation (Arabic, English, French) for any content or document.</p>
       </div>
       <div class="card">
-        <h3>Tech Assistance</h3>
-        <p>Custom tech solutions, automation, bots, and digital problem-solving services.</p>
+        <h3 id="service4Title">Tech Assistance</h3>
+        <p id="service4Desc">Custom tech solutions, automation, bots, and digital problem-solving services.</p>
       </div>
     </div>
   </section>
 
   <section id="portfolio">
-    <h2>Portfolio</h2>
+    <h2 id="portfolioTitle">Portfolio</h2>
     <div class="portfolio">
       <div class="card">
-        <h3>Personal Website</h3>
-        <p>A dark-themed portfolio with services and contact form.</p>
+        <h3 id="portfolio1Title">Personal Website</h3>
+        <p id="portfolio1Desc">A dark-themed portfolio with services and contact form.</p>
       </div>
       <div class="card">
-        <h3>Business Logo Pack</h3>
-        <p>Logo designs for startups, brands, and YouTube channels.</p>
+        <h3 id="portfolio2Title">Business Logo Pack</h3>
+        <p id="portfolio2Desc">Logo designs for startups, brands, and YouTube channels.</p>
       </div>
       <div class="card">
-        <h3>Multi-Language Docs</h3>
-        <p>Translated documents and web content with professional quality.</p>
+        <h3 id="portfolio3Title">Multi-Language Docs</h3>
+        <p id="portfolio3Desc">Translated documents and web content with professional quality.</p>
       </div>
     </div>
   </section>
 
   <section id="gallery">
-    <h2>Gallery</h2>
+    <h2 id="galleryTitle">Gallery</h2>
     <div class="gallery-grid">
       <img src="sample_0 (3).jpg" alt="Project 1" />
       <img src="sample_0 (4).jpg" alt="Project 2" />
@@ -209,26 +232,235 @@
   </section>
 
   <section id="contact">
-    <h2>Contact Me</h2>
+    <h2 id="contactTitle">Contact Me</h2>
     <form class="contact-form" action="https://formspree.io/f/xldnqjng" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-       <!-- Honeypot to stop spam bots -->
+      <input type="text" name="name" placeholder="Your Name" required id="contactName" />
+      <input type="email" name="email" placeholder="Your Email" required id="contactEmail" />
+      <textarea name="message" rows="5" placeholder="Your Message" required id="contactMessage"></textarea>
+      <button type="submit" id="contactButton">Send Message</button>
       <input type="text" name="_gotcha" style="display:none" />
     </form>
   </section>
+
   <section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <h3>Hello, I'm Jack</h3>
-    <p>I’m a full-stack creator from Morocco. I build modern websites, design logos, translate documents (Arabic / French / English), and provide tech solutions for people and businesses. I started GhostForge to share my passion and help others with quality digital services.</p>
-  </div>
-</section>
+    <h2 id="aboutTitle">About Me</h2>
+    <div class="card">
+      <h3 id="aboutName">Hello, I'm Jack</h3>
+      <p id="aboutDesc">I’m a full-stack creator from Morocco. I build modern websites, design logos, translate documents (Arabic / French / English), and provide tech solutions for people and businesses. I started GhostForge to share my passion and help others with quality digital services.</p>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 Jack | Contact: <a href="mailto:theghost2009uchiha@gmail.com">theghost2009uchiha@gmail.com</a>
+    &copy; 2025 Jack | Contact: <a href="mailto:theghost2009uchiha@gmail.com" id="footerEmail">theghost2009uchiha@gmail.com</a>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "GhostForge Full-Stack Creator",
+        subtitle: "Websites, Logos, Translations & Tech Solutions",
+        navServices: "Services",
+        navPortfolio: "Portfolio",
+        navGallery: "Gallery",
+        navContact: "Contact",
+        navAbout: "About",
+        servicesTitle: "My Services",
+        service1Title: "Web Development",
+        service1Desc: "Modern, responsive websites built with HTML, CSS, JavaScript, and more.",
+        service2Title: "Logo Design",
+        service2Desc: "Unique and creative logos tailored to your brand identity and audience.",
+        service3Title: "Translation",
+        service3Desc: "Professional translation (Arabic, English, French) for any content or document.",
+        service4Title: "Tech Assistance",
+        service4Desc: "Custom tech solutions, automation, bots, and digital problem-solving services.",
+        portfolioTitle: "Portfolio",
+        portfolio1Title: "Personal Website",
+        portfolio1Desc: "A dark-themed portfolio with services and contact form.",
+        portfolio2Title: "Business Logo Pack",
+        portfolio2Desc: "Logo designs for startups, brands, and YouTube channels.",
+        portfolio3Title: "Multi-Language Docs",
+        portfolio3Desc: "Translated documents and web content with professional quality.",
+        galleryTitle: "Gallery",
+        contactTitle: "Contact Me",
+        contactName: "Your Name",
+        contactEmail: "Your Email",
+        contactMessage: "Your Message",
+        contactButton: "Send Message",
+        aboutTitle: "About Me",
+        aboutName: "Hello, I'm Jack",
+        aboutDesc: "I’m a full-stack creator from Morocco. I build modern websites, design logos, translate documents (Arabic / French / English), and provide tech solutions for people and businesses. I started GhostForge to share my passion and help others with quality digital services.",
+        footerEmail: "theghost2009uchiha@gmail.com"
+      },
+      fr: {
+        title: "GhostForge Créateur Digital",
+        subtitle: "Sites Web, Logos, Traductions & Solutions Tech",
+        navServices: "Services",
+        navPortfolio: "Portfolio",
+        navGallery: "Galerie",
+        navContact: "Contact",
+        navAbout: "À propos",
+        servicesTitle: "Mes Services",
+        service1Title: "Développement Web",
+        service1Desc: "Sites modernes et responsives en HTML, CSS, JavaScript, etc.",
+        service2Title: "Conception de Logo",
+        service2Desc: "Logos uniques et créatifs adaptés à votre identité de marque.",
+        service3Title: "Traduction",
+        service3Desc: "Traduction professionnelle (arabe, anglais, français) de contenu.",
+        service4Title: "Assistance Technique",
+        service4Desc: "Solutions techniques personnalisées, automatisation, bots, etc.",
+        portfolioTitle: "Portfolio",
+        portfolio1Title: "Site Personnel",
+        portfolio1Desc: "Portfolio sombre avec services et formulaire de contact.",
+        portfolio2Title: "Pack Logos Business",
+        portfolio2Desc: "Designs de logos pour startups, marques et chaînes YouTube.",
+        portfolio3Title: "Docs Multilingues",
+        portfolio3Desc: "Documents et contenu web traduits avec qualité professionnelle.",
+        galleryTitle: "Galerie",
+        contactTitle: "Contactez-moi",
+        contactName: "Votre nom",
+        contactEmail: "Votre email",
+        contactMessage: "Votre message",
+        contactButton: "Envoyer",
+        aboutTitle: "À propos de moi",
+        aboutName: "Bonjour, je suis Jack",
+        aboutDesc: "Je suis un créateur full-stack du Maroc. Je crée des sites modernes, des logos, traduis des documents (arabe / français / anglais) et fournis des solutions tech. J'ai lancé GhostForge pour partager ma passion et aider les autres.",
+        footerEmail: "theghost2009uchiha@gmail.com"
+      },
+      ar: {
+        title: "جوست فورج – صانع رقمي محترف",
+        subtitle: "مواقع إلكترونية، شعارات، ترجمة وحلول تقنية",
+        navServices: "الخدمات",
+        navPortfolio: "أعمالي",
+        navGallery: "المعرض",
+        navContact: "اتصل بي",
+        navAbout: "من أنا",
+        servicesTitle: "خدماتي",
+        service1Title: "تطوير مواقع",
+        service1Desc: "مواقع حديثة ومتجاوبة بـ HTML و CSS و JavaScript وأكثر.",
+        service2Title: "تصميم شعارات",
+        service2Desc: "شعارات فريدة ومبدعة تناسب هويتك وجمهورك.",
+        service3Title: "الترجمة",
+        service3Desc: "ترجمة احترافية (عربي، إنجليزي، فرنسي) لأي محتوى.",
+        service4Title: "المساعدة التقنية",
+        service4Desc: "حلول تقنية مخصصة، أتمتة، بوتات، وخدمات حل المشاكل الرقمية.",
+        portfolioTitle: "أعمالي",
+        portfolio1Title: "موقع شخصي",
+        portfolio1Desc: "محفظة أعمال ذات ثيم داكن مع خدمات ونموذج تواصل.",
+        portfolio2Title: "حزمة شعارات تجارية",
+        portfolio2Desc: "تصميم شعارات للشركات الناشئة والعلامات التجارية وقنوات اليوتيوب.",
+        portfolio3Title: "وثائق متعددة اللغات",
+        portfolio3Desc: "وثائق ومحتوى ويب مترجم بجودة احترافية.",
+        galleryTitle: "المعرض",
+        contactTitle: "اتصل بي",
+        contactName: "اسمك",
+        contactEmail: "بريدك الإلكتروني",
+        contactMessage: "رسالتك",
+        contactButton: "أرسل",
+        aboutTitle: "من أنا",
+        aboutName: "مرحبًا، أنا جاك",
+        aboutDesc: "أنا منشئ متكامل من المغرب. أبني مواقع حديثة، أصمم شعارات، أترجم وثائق (عربي / فرنسي / إنجليزي)، وأقدم حلول تقنية للناس والشركات. أسست GhostForge لمشاركة شغفي ومساعدة الآخرين.",
+        footerEmail: "theghost2009uchiha@gmail.com"
+      },
+      jp: {
+        title: "GhostForge フルスタッククリエーター",
+        subtitle: "ウェブサイト、ロゴ、翻訳＆テックソリューション",
+        navServices: "サービス",
+        navPortfolio: "ポートフォリオ",
+        navGallery: "ギャラリー",
+        navContact: "お問い合わせ",
+        navAbout: "私について",
+        servicesTitle: "私のサービス",
+        service1Title: "ウェブ開発",
+        service1Desc: "HTML、CSS、JavaScriptなどを使ったモダンでレスポンシブなサイト構築。",
+        service2Title: "ロゴデザイン",
+        service2Desc: "ブランドのアイデンティティとターゲットに合わせたユニークでクリエイティブなロゴ。",
+        service3Title: "翻訳",
+        service3Desc: "アラビア語、英語、フランス語の専門的な翻訳サービス。",
+        service4Title: "テックアシスタンス",
+        service4Desc: "カスタム技術ソリューション、自動化、ボット、デジタル問題解決サービス。",
+        portfolioTitle: "ポートフォリオ",
+        portfolio1Title: "個人ウェブサイト",
+        portfolio1Desc: "サービスとお問い合わせフォームを備えたダークテーマのポートフォリオ。",
+        portfolio2Title: "ビジネスロゴパック",
+        portfolio2Desc: "スタートアップ、ブランド、YouTubeチャンネル向けのロゴデザイン。",
+        portfolio3Title: "多言語ドキュメント",
+        portfolio3Desc: "専門的な品質の翻訳ドキュメントとウェブコンテンツ。",
+        galleryTitle: "ギャラリー",
+        contactTitle: "お問い合わせ",
+        contactName: "お名前",
+        contactEmail: "メールアドレス",
+        contactMessage: "メッセージ",
+        contactButton: "送信",
+        aboutTitle: "私について",
+        aboutName: "こんにちは、ジャックです",
+        aboutDesc: "私はモロッコ出身のフルスタッククリエーターです。モダンなウェブサイトを作り、ロゴをデザインし、文書を翻訳（アラビア語/フランス語/英語）し、人や企業のためにテックソリューションを提供しています。GhostForgeは私の情熱を共有し、質の高いデジタルサービスで他者を助けるために始めました。",
+        footerEmail: "theghost2009uchiha@gmail.com"
+      },
+      ru: {
+        title: "GhostForge Полноценный Создатель",
+        subtitle: "Веб-сайты, Логотипы, Переводы и Технические Решения",
+        navServices: "Услуги",
+        navPortfolio: "Портфолио",
+        navGallery: "Галерея",
+        navContact: "Контакты",
+        navAbout: "Обо мне",
+        servicesTitle: "Мои услуги",
+        service1Title: "Веб-разработка",
+        service1Desc: "Современные, адаптивные сайты на HTML, CSS, JavaScript и других технологиях.",
+        service2Title: "Дизайн логотипов",
+        service2Desc: "Уникальные и креативные логотипы, адаптированные под ваш бренд и аудиторию.",
+        service3Title: "Перевод",
+        service3Desc: "Профессиональный перевод (арабский, английский, французский) любых текстов.",
+        service4Title: "Техническая помощь",
+        service4Desc: "Индивидуальные технические решения, автоматизация, боты и цифровая поддержка.",
+        portfolioTitle: "Портфолио",
+        portfolio1Title: "Личный сайт",
+        portfolio1Desc: "Темное портфолио с услугами и формой контакта.",
+        portfolio2Title: "Пакет бизнес-логотипов",
+        portfolio2Desc: "Дизайн логотипов для стартапов, брендов и YouTube каналов.",
+        portfolio3Title: "Многоязычные документы",
+        portfolio3Desc: "Перевод документов и веб-контента профессионального уровня.",
+        galleryTitle: "Галерея",
+        contactTitle: "Свяжитесь со мной",
+        contactName: "Ваше имя",
+        contactEmail: "Ваш email",
+        contactMessage: "Ваше сообщение",
+        contactButton: "Отправить",
+        aboutTitle: "Обо мне",
+        aboutName: "Привет, я Джек",
+        aboutDesc: "Я фулл-стек разработчик из Марокко. Создаю современные сайты, проектирую логотипы, перевожу документы (арабский/французский/английский), предоставляю технические решения для людей и бизнеса. Основал GhostForge, чтобы делиться страстью и помогать другим качественными цифровыми услугами.",
+        footerEmail: "theghost2009uchiha@gmail.com"
+      }
+    };
+
+    function setLang(lang) {
+      if (!translations[lang]) return;
+
+      // For Arabic, enable RTL; else LTR
+      if (lang === "ar") {
+        document.body.style.direction = "rtl";
+        document.body.style.textAlign = "right";
+      } else {
+        document.body.style.direction = "ltr";
+        document.body.style.textAlign = "left";
+      }
+
+      // Update all text elements by their IDs
+      Object.keys(translations[lang]).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          // For inputs and textarea placeholders
+          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.placeholder = translations[lang][id];
+          } else {
+            el.textContent = translations[lang][id];
+          }
+        }
+      });
+    }
+
+    // Initialize language to English on page load
+    setLang('en');
+  </script>
 </body>
 </html>
