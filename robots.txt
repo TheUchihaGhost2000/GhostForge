@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://theuchihaghost2000.github.io/GhostForge/sitemap.xml
