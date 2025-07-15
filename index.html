@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="robots" content="index, follow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="GhostForge - Web development, logo design, and tech services by Jack." />
@@ -17,6 +16,9 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -44,15 +46,24 @@
       background-color: #111;
       text-align: center;
       padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav a {
       color: #00ffff;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      font-size: 16px;
+      padding: 5px 8px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover,
+    nav a:focus {
+      background-color: #00b3b3;
+      outline: none;
     }
     section {
       padding: 60px 20px;
@@ -75,23 +86,39 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .card h3 {
       color: #00ffff;
       margin-bottom: 10px;
+      font-size: 24px;
     }
-    .card button {
+    .card p {
+      flex-grow: 1;
+      margin-bottom: 15px;
+      color: #ccc;
+      font-size: 16px;
+    }
+    .order-btn {
       background-color: #00ffff;
       color: #000;
       padding: 10px 20px;
-      border: none;
       border-radius: 6px;
+      font-weight: 700;
+      display: inline-block;
+      text-align: center;
       cursor: pointer;
-      font-weight: bold;
-      margin-top: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      align-self: flex-start;
+      user-select: none;
     }
-    .card button:hover {
+    .order-btn:hover,
+    .order-btn:focus {
       background-color: #00b3b3;
+      outline: none;
     }
     .gallery-grid {
       display: grid;
@@ -121,6 +148,7 @@
       border-radius: 5px;
       background-color: #222;
       color: #fff;
+      font-size: 16px;
     }
     .contact-form button {
       background-color: #00ffff;
@@ -130,6 +158,9 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+      user-select: none;
     }
     .contact-form button:hover {
       background-color: #00b3b3;
@@ -138,6 +169,17 @@
       text-align: center;
       padding: 30px 20px;
       color: #666;
+      background: linear-gradient(145deg, #111, #222);
+      font-size: 14px;
+    }
+    footer a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+      outline: none;
     }
     /* Language Switcher */
     .lang-switch {
@@ -154,6 +196,7 @@
       cursor: pointer;
       font-weight: bold;
       transition: background-color 0.3s ease;
+      user-select: none;
     }
     .lang-switch button:hover {
       background-color: #00b3b3;
@@ -188,18 +231,22 @@
       <div class="card">
         <h3 id="service1Title">Web Development</h3>
         <p id="service1Desc">Modern, responsive websites built with HTML, CSS, JavaScript, and more.</p>
+        <a href="https://fr.fiverr.com/s/1qxxg34" target="_blank" rel="noopener" class="order-btn" aria-label="Order Web Development Service">Order Now</a>
       </div>
       <div class="card">
         <h3 id="service2Title">Logo Design</h3>
         <p id="service2Desc">Unique and creative logos tailored to your brand identity and audience.</p>
+        <a href="https://fr.fiverr.com/s/1qxxg34" target="_blank" rel="noopener" class="order-btn" aria-label="Order Logo Design Service">Order Now</a>
       </div>
       <div class="card">
         <h3 id="service3Title">Translation</h3>
         <p id="service3Desc">Professional translation (Arabic, English, French) for any content or document.</p>
+        <a href="https://fr.fiverr.com/s/1qxxg34" target="_blank" rel="noopener" class="order-btn" aria-label="Order Translation Service">Order Now</a>
       </div>
       <div class="card">
         <h3 id="service4Title">Tech Assistance</h3>
         <p id="service4Desc">Custom tech solutions, automation, bots, and digital problem-solving services.</p>
+        <a href="https://fr.fiverr.com/s/1qxxg34" target="_blank" rel="noopener" class="order-btn" aria-label="Order Tech Assistance Service">Order Now</a>
       </div>
     </div>
   </section>
@@ -359,33 +406,33 @@
         contactButton: "أرسل",
         aboutTitle: "من أنا",
         aboutName: "مرحبًا، أنا جاك",
-        aboutDesc: "أنا منشئ متكامل من المغرب. أبني مواقع حديثة، أصمم شعارات، أترجم وثائق (عربي / فرنسي / إنجليزي)، وأقدم حلول تقنية للناس والشركات. أسست GhostForge لمشاركة شغفي ومساعدة الآخرين.",
+        aboutDesc: "أنا منشئ متكامل من المغرب. أبني مواقع حديثة، أصمم شعارات، أترجم وثائق (عربي / فرنسي / إنجليزي)، وأوفر حلول تقنية. بدأت GhostForge لأشارك شغفي وأساعد الآخرين بخدمات رقمية عالية الجودة.",
         footerEmail: "theghost2009uchiha@gmail.com"
       },
       jp: {
-        title: "GhostForge フルスタッククリエーター",
+        title: "ゴーストフォージ フルスタッククリエイター",
         subtitle: "ウェブサイト、ロゴ、翻訳＆テックソリューション",
         navServices: "サービス",
         navPortfolio: "ポートフォリオ",
         navGallery: "ギャラリー",
-        navContact: "お問い合わせ",
+        navContact: "連絡先",
         navAbout: "私について",
         servicesTitle: "私のサービス",
         service1Title: "ウェブ開発",
-        service1Desc: "HTML、CSS、JavaScriptなどを使ったモダンでレスポンシブなサイト構築。",
+        service1Desc: "HTML、CSS、JavaScriptなどを使ったモダンでレスポンシブなウェブサイト。",
         service2Title: "ロゴデザイン",
-        service2Desc: "ブランドのアイデンティティとターゲットに合わせたユニークでクリエイティブなロゴ。",
+        service2Desc: "ブランドアイデンティティとターゲットに合わせたユニークでクリエイティブなロゴ。",
         service3Title: "翻訳",
-        service3Desc: "アラビア語、英語、フランス語の専門的な翻訳サービス。",
+        service3Desc: "アラビア語、英語、フランス語のプロフェッショナルな翻訳サービス。",
         service4Title: "テックアシスタンス",
-        service4Desc: "カスタム技術ソリューション、自動化、ボット、デジタル問題解決サービス。",
+        service4Desc: "カスタムテックソリューション、自動化、ボット、デジタル問題解決サービス。",
         portfolioTitle: "ポートフォリオ",
         portfolio1Title: "個人ウェブサイト",
         portfolio1Desc: "サービスとお問い合わせフォームを備えたダークテーマのポートフォリオ。",
         portfolio2Title: "ビジネスロゴパック",
         portfolio2Desc: "スタートアップ、ブランド、YouTubeチャンネル向けのロゴデザイン。",
         portfolio3Title: "多言語ドキュメント",
-        portfolio3Desc: "専門的な品質の翻訳ドキュメントとウェブコンテンツ。",
+        portfolio3Desc: "プロフェッショナル品質の翻訳ドキュメントとウェブコンテンツ。",
         galleryTitle: "ギャラリー",
         contactTitle: "お問い合わせ",
         contactName: "お名前",
@@ -394,12 +441,12 @@
         contactButton: "送信",
         aboutTitle: "私について",
         aboutName: "こんにちは、ジャックです",
-        aboutDesc: "私はモロッコ出身のフルスタッククリエーターです。モダンなウェブサイトを作り、ロゴをデザインし、文書を翻訳（アラビア語/フランス語/英語）し、人や企業のためにテックソリューションを提供しています。GhostForgeは私の情熱を共有し、質の高いデジタルサービスで他者を助けるために始めました。",
+        aboutDesc: "モロッコ出身のフルスタッククリエイターです。モダンなウェブサイト構築、ロゴデザイン、翻訳（アラビア語／フランス語／英語）、テックソリューション提供をしています。GhostForgeは私の情熱を共有し、質の高いデジタルサービスで皆様を支援するために始めました。",
         footerEmail: "theghost2009uchiha@gmail.com"
       },
       ru: {
-        title: "GhostForge Полноценный Создатель",
-        subtitle: "Веб-сайты, Логотипы, Переводы и Технические Решения",
+        title: "GhostForge - Фуллстек разработчик",
+        subtitle: "Веб-сайты, логотипы, переводы и технические решения",
         navServices: "Услуги",
         navPortfolio: "Портфолио",
         navGallery: "Галерея",
@@ -407,20 +454,20 @@
         navAbout: "Обо мне",
         servicesTitle: "Мои услуги",
         service1Title: "Веб-разработка",
-        service1Desc: "Современные, адаптивные сайты на HTML, CSS, JavaScript и других технологиях.",
+        service1Desc: "Современные адаптивные сайты на HTML, CSS, JavaScript и др.",
         service2Title: "Дизайн логотипов",
-        service2Desc: "Уникальные и креативные логотипы, адаптированные под ваш бренд и аудиторию.",
+        service2Desc: "Уникальные и креативные логотипы, соответствующие бренду и аудитории.",
         service3Title: "Перевод",
-        service3Desc: "Профессиональный перевод (арабский, английский, французский) любых текстов.",
+        service3Desc: "Профессиональный перевод (арабский, английский, французский) любых материалов.",
         service4Title: "Техническая помощь",
-        service4Desc: "Индивидуальные технические решения, автоматизация, боты и цифровая поддержка.",
+        service4Desc: "Индивидуальные технические решения, автоматизация, боты и цифровые услуги.",
         portfolioTitle: "Портфолио",
-        portfolio1Title: "Личный сайт",
-        portfolio1Desc: "Темное портфолио с услугами и формой контакта.",
-        portfolio2Title: "Пакет бизнес-логотипов",
-        portfolio2Desc: "Дизайн логотипов для стартапов, брендов и YouTube каналов.",
+        portfolio1Title: "Персональный сайт",
+        portfolio1Desc: "Темное портфолио с услугами и формой обратной связи.",
+        portfolio2Title: "Пакет логотипов для бизнеса",
+        portfolio2Desc: "Дизайн логотипов для стартапов, брендов и YouTube-каналов.",
         portfolio3Title: "Многоязычные документы",
-        portfolio3Desc: "Перевод документов и веб-контента профессионального уровня.",
+        portfolio3Desc: "Профессиональный перевод документов и веб-контента.",
         galleryTitle: "Галерея",
         contactTitle: "Свяжитесь со мной",
         contactName: "Ваше имя",
@@ -429,38 +476,59 @@
         contactButton: "Отправить",
         aboutTitle: "Обо мне",
         aboutName: "Привет, я Джек",
-        aboutDesc: "Я фулл-стек разработчик из Марокко. Создаю современные сайты, проектирую логотипы, перевожу документы (арабский/французский/английский), предоставляю технические решения для людей и бизнеса. Основал GhostForge, чтобы делиться страстью и помогать другим качественными цифровыми услугами.",
+        aboutDesc: "Я фуллстек разработчик из Марокко. Создаю современные сайты, дизайн логотипов, перевожу документы (арабский / французский / английский) и предоставляю технические решения. Основал GhostForge, чтобы делиться своей страстью и помогать другим качественными цифровыми услугами.",
         footerEmail: "theghost2009uchiha@gmail.com"
       }
     };
 
     function setLang(lang) {
-      if (!translations[lang]) return;
+      const t = translations[lang];
+      if (!t) return;
 
-      // For Arabic, enable RTL; else LTR
-      if (lang === "ar") {
-        document.body.style.direction = "rtl";
-        document.body.style.textAlign = "right";
+      // Update text content for all translatable elements
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('subtitle').textContent = t.subtitle;
+      document.getElementById('navServices').textContent = t.navServices;
+      document.getElementById('navPortfolio').textContent = t.navPortfolio;
+      document.getElementById('navGallery').textContent = t.navGallery;
+      document.getElementById('navContact').textContent = t.navContact;
+      document.getElementById('navAbout').textContent = t.navAbout;
+      document.getElementById('servicesTitle').textContent = t.servicesTitle;
+      document.getElementById('service1Title').textContent = t.service1Title;
+      document.getElementById('service1Desc').textContent = t.service1Desc;
+      document.getElementById('service2Title').textContent = t.service2Title;
+      document.getElementById('service2Desc').textContent = t.service2Desc;
+      document.getElementById('service3Title').textContent = t.service3Title;
+      document.getElementById('service3Desc').textContent = t.service3Desc;
+      document.getElementById('service4Title').textContent = t.service4Title;
+      document.getElementById('service4Desc').textContent = t.service4Desc;
+      document.getElementById('portfolioTitle').textContent = t.portfolioTitle;
+      document.getElementById('portfolio1Title').textContent = t.portfolio1Title;
+      document.getElementById('portfolio1Desc').textContent = t.portfolio1Desc;
+      document.getElementById('portfolio2Title').textContent = t.portfolio2Title;
+      document.getElementById('portfolio2Desc').textContent = t.portfolio2Desc;
+      document.getElementById('portfolio3Title').textContent = t.portfolio3Title;
+      document.getElementById('portfolio3Desc').textContent = t.portfolio3Desc;
+      document.getElementById('galleryTitle').textContent = t.galleryTitle;
+      document.getElementById('contactTitle').textContent = t.contactTitle;
+      document.getElementById('contactName').placeholder = t.contactName;
+      document.getElementById('contactEmail').placeholder = t.contactEmail;
+      document.getElementById('contactMessage').placeholder = t.contactMessage;
+      document.getElementById('contactButton').textContent = t.contactButton;
+      document.getElementById('aboutTitle').textContent = t.aboutTitle;
+      document.getElementById('aboutName').textContent = t.aboutName;
+      document.getElementById('aboutDesc').textContent = t.aboutDesc;
+      document.getElementById('footerEmail').textContent = t.footerEmail;
+
+      // Set text direction for Arabic
+      if (lang === 'ar') {
+        document.documentElement.dir = 'rtl';
       } else {
-        document.body.style.direction = "ltr";
-        document.body.style.textAlign = "left";
+        document.documentElement.dir = 'ltr';
       }
-
-      // Update all text elements by their IDs
-      Object.keys(translations[lang]).forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          // For inputs and textarea placeholders
-          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-            el.placeholder = translations[lang][id];
-          } else {
-            el.textContent = translations[lang][id];
-          }
-        }
-      });
     }
 
-    // Initialize language to English on page load
+    // Default language English
     setLang('en');
   </script>
 </body>
